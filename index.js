@@ -1,22 +1,30 @@
 function createPlayer(name, symbol){
     const playerName = name;
     const playerSymbol = symbol;
+    let getPlayerName = () => {
+        console.log('The player name is ' + playerName + ' and their symbol is: ' + playerSymbol )
+    }
 
-    return {playerName, playerSymbol};
+    return {playerName, playerSymbol,getPlayerName};
 }
 
-const displayController = function(){
-    const chooseSide = () => console.log("Hello World!")
-    return {chooseSide}
+
+function handleClick(symbol){
+    const squares = document.querySelectorAll('.board-square');
+    squares.forEach((square) => {
+        if (symbol === 'X'){
+            square.addEventListener('click', () => {
+                square.textContent = 'X';
+            }
+            )
+        }
+        else {
+            square.addEventListener('click', ()=> {
+                square.textContent = 'O';
+            })
+        }
+    })
 }
 
-console.log(displayController.chooseSide);
 
-let player1 = createPlayer('Kevin', 'X')
-console.log({
-    playerName: player1.playerName,
-    playerSymbol: player1.playerSymbol
-})
-
-let player2 = createPlayer('Jenna', 'O');
-console.log(player2.playerSymbol);
+handleClick('O');
