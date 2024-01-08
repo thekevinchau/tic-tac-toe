@@ -8,23 +8,26 @@ function createPlayer(name, symbol){
     return {playerName, playerSymbol,getPlayerName};
 }
 
+function handleClick(symbol) {
+    let currSymbol = symbol;
+    let squares = document.querySelectorAll('.board-square')
+    console.log(squares);
 
-function handleClick(symbol){
-    const squares = document.querySelectorAll('.board-square');
-    squares.forEach((square) => {
-        if (symbol === 'X'){
-            square.addEventListener('click', () => {
-                square.textContent = 'X';
+    for (let i = 0; i < squares.length; i++){
+        squares[i].addEventListener('click', () => {
+            if (currSymbol === 'X'){
+                squares[i].textContent = currSymbol;
+                currSymbol = 'O';
+                console.log(currSymbol);
             }
-            )
-        }
-        else {
-            square.addEventListener('click', ()=> {
-                square.textContent = 'O';
-            })
-        }
-    })
+            else if (currSymbol === 'O'){
+                squares[i].textContent = currSymbol;
+                currSymbol = 'X';
+            }
+        },
+        {once: true}) //ensures that you can only click each square once
+
+    }
 }
 
-
-handleClick('O');
+handleClick('X');
