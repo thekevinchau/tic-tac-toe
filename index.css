@@ -2,6 +2,9 @@
     margin: 0;
 }
 
+:root{
+}
+
 .container{
     height: 100vh;
     display: flex;
@@ -15,10 +18,40 @@
     width: 20rem;
     grid-template-rows: repeat(3,1fr);
     grid-template-columns: repeat(3,1fr);
+    color: white;
 
 }
 
 .board-square{
     text-align: center;
-    border: 1px solid red;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-square:first-child,
+.board-square:nth-child(2),
+.board-square:nth-child(3){
+    border-top: none;
+}
+
+.board-square:first-child,
+.board-square:nth-child(n-1){
+    border-left: none;
+}
+
+.board-square:nth-child(3n + 1){
+    border-left: none;
+}
+
+.board-square:nth-child(3n + 3){
+    border-right: none;
+}
+
+.board-square:last-child,
+.board-square:nth-child(7),
+.board-square:nth-child(8){
+    border-bottom: none;
 }
