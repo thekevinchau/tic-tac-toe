@@ -40,3 +40,18 @@ body{
     background-color: rgb(9, 164, 215);
 
 }
+
+#readyButton{
+    color: black;
+    background-color: rgb(32, 221, 32);
+    border: 2px solid black;
+    height: 3rem;
+    width: 10rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#readyButton:hover{
+    opacity: 60%;
+}
