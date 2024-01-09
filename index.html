@@ -5,9 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="inputPage.css">
     <script src="index.js" defer></script>
 </head>
 <body>
+    <div class="inputPage">
+        <h1 style="color: white">Choose your players!</h1>
+        <div class="player One">
+            <h2>Player 1</h2>
+            <label> Name</label>
+            <input type="text" placeholder="Player One Name">
+            <label>Symbol</label>
+            <input type="select" placeholder="Player Symbol">
+        </div>
+
+
+        <div class="player Two">
+            <h1>Player 2</h1>
+            <label>Player Name</label>
+            <input type="text" placeholder="Player One Name">
+            <label>Player Symbol</label>
+            <input type="select" placeholder="Player Symbol">
+        </div>
+
+        <button type="submit">Ready!</button>
+
+    </div>
+
+
     <div class="container">
         <h1>Tic Tac Toe</h1>
         <div class="gameboard">
@@ -21,7 +46,7 @@
             <div class="board-square" data-cell="8"></div>
             <div class="board-square" data-cell="9"></div>
         </div>
-        <p class="playerTurn"></p>
+        <p style= "color: black" class="playerTurn"></p>
         <button id="restart">Restart</button>
     </div>
 </body>
