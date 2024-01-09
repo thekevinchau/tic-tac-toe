@@ -3,7 +3,7 @@ body{
 }
 
 .inputPage{
-    height: 100vh;
+    height:100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -14,7 +14,7 @@ body{
 .player{
     color: white;
     height: 30vh;
-    width: 25vw;
+    width: 20vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,12 +22,20 @@ body{
     border-radius: 20px;
     border: 2px solid black;
 }
+.player > label{
+    font-weight: bold;
+}
+
+.input{
+    border: 3px solid black;
+    height: 2rem;
+    padding-left: 10px;
+    border-radius: 15px;
+}
 
 .player.One{
     color: white;
     background-color: rgb(225, 7, 7);
-    height: 30vh;
-    width: 25vw;
     display: flex;
     flex-direction: column;
     align-items: center;

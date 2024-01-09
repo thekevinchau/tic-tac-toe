@@ -1,5 +1,17 @@
-let options = ["","","","","","","","",""]
+//Player Input
+function ready(){
+    let readyBtn = document.querySelector('#readyButton')
+    let inputPage = document.querySelector('.inputPage')
+    let container = document.querySelector('.container');
 
+    readyBtn.addEventListener('click', () => {
+        inputPage.style.display = "none";
+        container.style.display = "flex";
+        console.log('clicked')
+    })
+}
+
+//Game Logic
 function createPlayer(player, symbol){
     return {player, symbol};
 }
@@ -52,6 +64,7 @@ function clearBoard() {
 }
 
 function intializeGame(){
+    ready();
     let running = true;
     let button = document.querySelector('#restart');
     let person = createPlayer('Kevin', 'X')
@@ -59,7 +72,6 @@ function intializeGame(){
 
     if(running){
         handleClick(person);
-        
     }
 }
 
