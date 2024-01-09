@@ -1,5 +1,9 @@
 let options = ["","","","","","","","",""]
 
+function createPlayer(player, symbol){
+    return {player, symbol};
+}
+
 function updateSquare(cell,symbol){
     cell.textContent = symbol;
 }
@@ -13,9 +17,11 @@ function switchTurns(symbol){
     }
 }
 
-function handleClick(symbol){
-    let currSymbol = symbol;
+function handleClick(player){
+    let currSymbol = player.symbol;
     let squares = document.querySelectorAll('[data-cell]');
+    let status = document.querySelector('.playerTurn')
+    status.textContent = `${currSymbol}'s turn`
 
     squares.forEach((square) => {
         square.addEventListener('click', () => {
@@ -23,11 +29,13 @@ function handleClick(symbol){
                 if (currSymbol === 'X'){
                     updateSquare(square,currSymbol);
                     currSymbol = switchTurns(currSymbol);
+                    status.textContent = `${currSymbol}'s turn`
                     console.log(square.textContent);
                 }
                 else if (currSymbol === 'O'){
                     updateSquare(square, currSymbol);
                     currSymbol = switchTurns(currSymbol);
+                    status.textContent = `${currSymbol}'s turn`
                     console.log(square.textContent);
                 }
             }
@@ -38,20 +46,19 @@ function handleClick(symbol){
 function clearBoard() {
     let squares = document.querySelectorAll('[data-cell]');
         squares.forEach(square => square.textContent = '')
-}
-
-
-function checkDraw(){
-    //if check win doesn't return a true value then we can assume it's a draw
+    
+    let status = document.querySelector('.playerTurn')
+    status.textContent = `X's turn`
 }
 
 function intializeGame(){
     let running = true;
-    let button = document.querySelector('#restart')
+    let button = document.querySelector('#restart');
+    let person = createPlayer('Kevin', 'X')
+    button.addEventListener('click', () => clearBoard())
 
-   if(running){
-        handleClick('X');
-        button.addEventListener('click', () => clearBoard())
+    if(running){
+        handleClick(person);
         
     }
 }
