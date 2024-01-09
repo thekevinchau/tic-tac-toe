@@ -1,3 +1,5 @@
+let options = ["","","","","","","","",""]
+
 function updateSquare(cell,symbol){
     cell.textContent = symbol;
 }
@@ -11,63 +13,46 @@ function switchTurns(symbol){
     }
 }
 
-function restartGame(){
-    let button = document.querySelector('#restart')
-    
-    button.addEventListener('click', () => {
-        clearSquares();
-
-    })
-}
-
-function clearSquares() {
-    let squares = document.querySelectorAll('[data-cell]');
-    squares.forEach((square) => {
-        square.textContent = "";
-    })
-}
-
-function checkWinner(){
-    const winningCombinations = [
-        [0, 1, 2], // Top row
-        [3, 4, 5], // Middle row
-        [6, 7, 8], // Bottom row
-        [0, 3, 6], // Left column
-        [1, 4, 7], // Middle column
-        [2, 5, 8], // Right column
-        [0, 4, 8], // Diagonal from top-left to bottom-right
-        [2, 4, 6]  // Diagonal from top-right to bottom-left
-      ];
-}
-
-function checkDraw(){
-
-}
-
 function handleClick(symbol){
     let currSymbol = symbol;
     let squares = document.querySelectorAll('[data-cell]');
 
     squares.forEach((square) => {
         square.addEventListener('click', () => {
-            if (currSymbol === 'X'){
-                updateSquare(square,currSymbol);
-                currSymbol = switchTurns(currSymbol);
+            if (square.textContent === ''){
+                if (currSymbol === 'X'){
+                    updateSquare(square,currSymbol);
+                    currSymbol = switchTurns(currSymbol);
+                    console.log(square.textContent);
+                }
+                else if (currSymbol === 'O'){
+                    updateSquare(square, currSymbol);
+                    currSymbol = switchTurns(currSymbol);
+                    console.log(square.textContent);
+                }
             }
-            else if (currSymbol === 'O'){
-                updateSquare(square, currSymbol);
-                currSymbol = switchTurns(currSymbol);
-            }
-        },{once: true});
+        });
     })
+}
+
+function clearBoard() {
+    let squares = document.querySelectorAll('[data-cell]');
+        squares.forEach(square => square.textContent = '')
+}
+
+
+function checkDraw(){
+    //if check win doesn't return a true value then we can assume it's a draw
 }
 
 function intializeGame(){
     let running = true;
+    let button = document.querySelector('#restart')
 
-    if (running){
+   if(running){
         handleClick('X');
-        restartGame();
+        button.addEventListener('click', () => clearBoard())
+        
     }
 }
 
