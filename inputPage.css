@@ -1,10 +1,10 @@
 body{
-    background-color: lightblue;
+    background-color: white;
 }
 
 .inputPage{
     height:100vh;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -18,7 +18,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     border-radius: 20px;
     border: 2px solid black;
 }
